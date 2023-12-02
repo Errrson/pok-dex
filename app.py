@@ -4,11 +4,9 @@ from classes.PokemonClass import PokemonClass
 app = Flask(__name__)
 
 
-# @app.route("/")
-# def hello_world():
-#     Pokemon_list = PokemonClass.get_response(
-#         "https://pokeapi.co/api/v2/pokemon?limit=1000")
-#     return render_template("index.html", pokemon_list=Pokemon_list)
+@app.route("/")
+def hello_world():
+    return render_template("index.html")
 
 
 @app.route("/pokemon/<string:nombre_pokemon>")
@@ -27,7 +25,7 @@ def page_pokemon(nombre_pokemon):
         'description': Pokemon.get_description()
     }
 
-    return render_template("pokemon_page.html", details=pokemon_details)
+    return render_template("details_pokemon.html", pokemon=pokemon_details)
 
 
 if __name__ == "__main__":
