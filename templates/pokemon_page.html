@@ -11,8 +11,22 @@
     <h1>{{ details.name }}</h1>
     <h2>{{ details.number }}</h2>
     <p>Soy el template page_pokemon!</p>
-    <img src="{{ details.sprites }}">
-
+    <img src="{{ details.sprites }}"> <img src="{{details.sprite_shiny}}">
+    <ul>
+        {% for type in details.types %}
+        <li>{{ type }}</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for stat in details.stats %}
+        <li>{{ stat.name }}:{{ stat.value }}</li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for ability in details.abilities %}
+        <li>{{ ability }}</li>
+        {% endfor %}
+    </ul>
 </body>
 
 </html>
