@@ -20,14 +20,42 @@ def get_pokemon_list(url: str):
     return pokemon_list
 
 
-def get_pokemon(url: str):
+def get_pokemon(url: str) -> dict:
     response_pokemon_json = pokemon_request(url)
     dicc_pokemon = {
         'name': response_pokemon_json["name"],
         'number': response_pokemon_json["id"],
-        'sprites': response_pokemon_json['sprites']['front_default']
+        'sprites': response_pokemon_json['sprites']['front_default'],
+        'sprite_shiny': response_pokemon_json['sprites']['front_shiny'],
+        'types': get_types_pokemon(response_pokemon_json['types']),
+        'stats': get_stats_pokemon(response_pokemon_json['stats']),
+        'abilities': get_abilities_pokemon(response_pokemon_json['abilities'])
     }
     return dicc_pokemon
 
 
-print(get_pokemon("https://pokeapi.co/api/v2/pokemon/ditto"))
+def get_types_pokemon(types: list) -> list:
+    types_pokemon = []
+    for tipo in types:
+        types_pokemon.append(tipo['type']['name'])
+    return types_pokemon
+
+
+def get_stats_pokemon(stats: list) -> list:
+    stats_pokemons = []
+    for stat in stats:
+        current_stat = {
+            'name': stat['stat']['name'],
+            'value': stat['base_stat']
+        }
+        stats_pokemons.append(current_stat)
+    return stats_pokemons
+
+
+def get_abilities_pokemon(abilities: list) -> list:
+    abilities_pokemon = []
+    for ability in abilities:
+        abilities_pokemon.append(ability["ability"]["name"])
+    return abilities_pokemon
+
+# print(get_pokemon("https://pokeapi.co/api/v2/pokemon/palkia"))
