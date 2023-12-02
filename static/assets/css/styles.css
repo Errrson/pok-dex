@@ -100,3 +100,7 @@ ul.details__evolution-list li:first-child:before {
     max-width: 100%;
     width: 80px;
 }
+
+.details__picture {
+    text-align: center;
+}

@@ -19,7 +19,7 @@
                     <span class="details__name">{{ pokemon.name }}</span>
                 </h1>
                 <div class="details__picture">
-                    <img src="{{ pokemon.sprite }}">
+                    <img src="https://img.pokemondb.net/sprites/home/normal/{{pokemon.name}}.png">
                     <div class="details__picture-actions">
                         <button>shiny</button>
                     </div>
@@ -41,7 +41,8 @@
                     {% for evolucion in pokemon.evs %}
                     <li class="details__evolution-item">
                         <div class="pokemon-card-evolution">
-                            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png">
+                            <img
+                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{evolucion.id}}.png">
                             <h3>{{ evolucion.name }}</h3>
                         </div>
                     </li>
