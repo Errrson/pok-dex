@@ -76,18 +76,27 @@ class PokemonClass:
         species_json = self.get_response(self.response['species']['url'])
         evolution_json = self.get_response(
             species_json['evolution_chain']['url'])
+
+        evolution_step_json = self.get_response(
+            evolution_json['chain']['species']['url'])
         evolutions = {'name': evolution_json['chain']['species']['name'],
-                      'url': evolution_json['chain']['species']['url']}
+                      'id': evolution_step_json['id']}
         list_evolutions.append(evolutions)
+
         evolution_first = evolution_json['chain']['evolves_to']
         if evolution_first:
+            evolution_step_json = self.get_response(
+                evolution_first[0]['species']['url'])
             evolutions = {'name': evolution_first[0]['species']['name'],
-                          'url': evolution_first[0]['species']['url']}
+                          'id': evolution_step_json['id']}
             list_evolutions.append(evolutions)
+
             evolution_second = evolution_first[0]['evolves_to']
             if evolution_second:
+                evolution_step_json = self.get_response(
+                    evolution_second[0]['species']['url'])
                 evolutions = {'name': evolution_second[0]['species']['name'],
-                              'url': evolution_second[0]['species']['url']}
+                              'id': evolution_step_json['id']}
             list_evolutions.append(evolutions)
 
         return list_evolutions
