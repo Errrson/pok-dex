@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fill_progress_bar("js-stat__value--special-defense", "#30a7d7");
     fill_progress_bar("js-stat__value--speed", "#30a7d7");
     // Agregar un evento de clic al botón para cambiar la imagen
-    document.getElementById('cambiarBtn').addEventListener('click', cambiarImagen);
+    document.getElementById('js-change-image').addEventListener('click', change_image);
 
 });
 
@@ -34,9 +34,9 @@ function fill_progress_bar(id, color) {
 // Asegúrate de incluir la biblioteca anime.js en tu proyecto
 
 // Función para cambiar la imagen con una animación
-function cambiarImagen() {
+function change_image() {
     const elementImage = document.getElementById('main-image');
-    const buttonElement = document.getElementById('cambiarBtn');
+    const buttonElement = document.getElementById('js-change-image');
 
     // Obtener los valores de las imágenes desde los atributos data
     const mainImage = elementImage.getAttribute('data-image-main');
@@ -55,6 +55,8 @@ function cambiarImagen() {
         complete: function () {
             // Cambiar la imagen después de la animación
             elementImage.src = currentSateImage === 1 ? mainImage : shinyImage;
+            // Cambiar texto del botón después de la animación
+            buttonElement.textContent = currentSateImage === 1 ? "shiny" : "volver";
 
             // Reiniciar la opacidad
             anime({
