@@ -107,16 +107,3 @@ class PokemonClass:
         description = description_original.replace(
             "\n", " ").replace("\f", "")
         return description
-
-
-pokemon1 = PokemonClass("eevee")
-print(pokemon1)
-print(pokemon1.get_name())
-print(pokemon1.get_num_pokedex())
-print(pokemon1.get_url_sprite())
-print(pokemon1.get_types())
-print(pokemon1.get_stats())
-print(pokemon1.get_height())
-print(pokemon1.get_weight())
-print(pokemon1.get_evolution_chain())
-print(pokemon1.get_description())
