@@ -8,11 +8,10 @@
 </head>
 
 <body>
-    <h1>{{ saludo }}</h1>
-    <p>Soy el template</p>
+    <h1> POKEDEX </h1>
     <ul>
-        {% for pokemon in pokemon_list %}
-        <li>{{ pokemon }}</li>
+        {% for pokemon in pokemon %}
+        <li>{{ pokemon.name }}</li>
         {% endfor %}
     </ul>
 </body>
