@@ -52,7 +52,7 @@
                             </li>
                             <li class="details__features-item">
                                 <span class="details__features-item-name">Type:</span>
-                                <span class="details__features-item-value">bug/poison</span>
+                                <span class="details__features-item-value">{{ pokemon.types }}</span>
                             </li>
                         </ul>
                     </div>
@@ -65,14 +65,17 @@
                     <div class="details__stats">
                         <h2>Stats</h2>
                         <ul class="stats__list">
+                            {% for atributo in pokemon.stats %}
                             <li class="stats__item stat__hp">
-                                <span class="stat__name">hp</span>
-                                <span id="js-stat__value--hp" class="stat__value" data-value="50"></span>
+                                <span class="stat__name">{{ atributo.name }}</span>
+                                <span id="js-stat__value--hp" class="stat__value"
+                                    data-value="{{ atributo.value }}"></span>
                             </li>
-                            <li class="stats__item stat__speed">
+                            {% endfor %}
+                            <!-- <li class="stats__item stat__speed">
                                 <span class="stat__name">speed</span>
                                 <span id="js-stat__value--speed" class="stat__value" data-value="90"></span>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="details__evolution">
