@@ -9,9 +9,19 @@
 
 <body>
     <h1> POKEDEX </h1>
+    <form method="post" action="{{ url_for('search_pokemon') }}">
+        <label for="search">Name pokemon or ID:</label>
+        <input type="text" id="search" name="search" required>
+        <button type="submit">Search</button>
+    </form>
     <ul>
-        {% for pokemon in pokemon %}
-        <li>{{ pokemon.name }}</li>
+        {% for pokemon in pokemonlist %}
+        <li>
+            <a href="{{pokemon.url}}">
+                <img src="https://img.pokemondb.net/sprites/home/normal/{{ pokemon.name }}.png">
+                <span>{{ pokemon.name }}</span>
+            </a>
+        </li>
         {% endfor %}
     </ul>
 </body>
