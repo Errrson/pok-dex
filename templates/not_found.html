@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Recurso no encontrado</h1>
+    <p>No se ha encontrado el recurso que está buscando. Por favor realice otra búsqueda.</p>
+    <div>
+        <form method="post" action="{{ url_for('search_pokemon') }}">
+            <label for="search">Name pokemon or ID:</label>
+            <input type="text" id="search" name="search" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+
+</html>
