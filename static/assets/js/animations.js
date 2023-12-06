@@ -27,7 +27,7 @@ function fill_progress_bar(id, color) {
         trailWidth: 0, // Sin fondo de la barra
     });
     setTimeout(function () {
-        barra.animate(percentage / 100);
+        barra.animate(percentage / 250);
     }, 1000);
 }
 

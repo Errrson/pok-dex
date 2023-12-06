@@ -228,8 +228,8 @@ ul.details__evolution-list li:first-child:before {
 }
 
 .stat__name {
-    margin-right: 0.2rem;
-    min-width: 15%;
+    width: 25%;
+    font-size: .8rem;
 }
 
 .stat__value {
@@ -237,6 +237,7 @@ ul.details__evolution-list li:first-child:before {
     background: lightgray;
     border-radius: 3px;
     overflow: hidden;
+    width: 75%;
 }
 
 #back {
