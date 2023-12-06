@@ -37,7 +37,11 @@ class PokemonClass:
 
     def get_response(self, url):
         response = requests.get(url, headers=self.h)
-        return response.json()
+        if response.ok:
+            result = response.json()
+        else:
+            result = False
+        return result
 
     def get_name(self):
         return self.response['name']
@@ -52,16 +56,19 @@ class PokemonClass:
         return self.response['sprites']['front_shiny']
 
     def get_weight(self):
-        return self.response['weight']
+        return self.response['weight']/10
 
     def get_height(self):
-        return self.response['height']
+        return self.response['height']/10
 
     def get_types(self):
         list_types = []
         for type_poke in self.response['types']:
             list_types.append(type_poke['type']['name'])
-        return list_types
+        string_types = ""
+        for tipo in list_types:
+            string_types += tipo + " / "
+        return string_types[:-2]
 
     def get_stats(self):
         list_stats = []
@@ -107,3 +114,9 @@ class PokemonClass:
         description = description_original.replace(
             "\n", " ").replace("\f", "")
         return description
+
+    def get_next_pokemon(self):
+        return f"/pokemon/{self.response['id'] + 1}"
+
+    def get_previous_pokemon(self):
+        return f"/pokemon/{self.response['id'] - 1}"
