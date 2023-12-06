@@ -110,10 +110,10 @@ class PokemonClass:
 
     def get_description(self):
         species_json = self.get_response(self.response['species']['url'])
-        description_original = species_json['flavor_text_entries'][1]['flavor_text']
-        description = description_original.replace(
-            "\n", " ").replace("\f", "")
-        return description
+        description_original = species_json['flavor_text_entries'][1][
+            'flavor_text'] if species_json['flavor_text_entries'] else ""
+        description = description_original.replace("\n", " ").replace("\f", "")
+        return description_original
 
     def get_next_pokemon(self):
         return f"/pokemon/{self.response['id'] + 1}"
