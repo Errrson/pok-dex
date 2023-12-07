@@ -132,6 +132,11 @@ h2 {
     text-transform: uppercase;
 }
 
+.details__evolution {
+    margin-bottom: 3rem;
+
+}
+
 .details__evolution h2 {
     padding-top: 1rem;
     border-top: 2px solid rgba(255, 255, 255, 0.4);
@@ -243,6 +248,12 @@ ul.details__evolution-list li:first-child:before {
     content: '\e5c4';
     vertical-align: middle;
     font-size: 1.5rem;
+}
+
+.details__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /*Lista de pokemon*/
