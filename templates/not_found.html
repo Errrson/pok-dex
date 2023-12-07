@@ -4,18 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
 </head>
 
-<body>
-    <h1>Recurso no encontrado</h1>
-    <p>No se ha encontrado el recurso que está buscando. Por favor realice otra búsqueda.</p>
-    <div>
-        <form method="post" action="{{ url_for('search_pokemon') }}">
-            <label for="search">Name pokemon or ID:</label>
-            <input type="text" id="search" name="search" required>
-            <button type="submit">Search</button>
-        </form>
+<body class="pag-404">
+    <div class="pokemon-404">
+        <div class="pokemon-404__left">
+            <h1>Pokemon no encontrado</h1>
+            <p>No se ha encontrado el recurso que está buscando. Por favor realice otra búsqueda.</p>
+            <div class="pokemon-form">
+                <form method="post" action="{{ url_for('search_pokemon') }}">
+                    <!-- <label for="search">Name pokemon or ID:</label> -->
+                    <input type="text" id="search" name="search" placeholder="Name pokemon or ID" required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="pokemon-404__right">
+            <img src="{{ url_for('static', filename='assets/img/404.png') }}">
+        </div>
     </div>
 </body>
 

@@ -272,10 +272,24 @@ ul.details__evolution-list li:first-child:before {
     flex-direction: column;
     align-items: center;
     margin: 1rem;
+    overflow: hidden;
+    /* Para evitar que el contenido se desborde al crecer */
+    transition: transform 0.3s ease;
+    /* Añade una transición suave al efecto */
+}
+
+.pokemon-block__item a:hover {
+    transform: scale(1.1);
+    /* Escala el elemento al 110% del tamaño original */
+}
+
+.pokemon__image {
+    margin-bottom: 0.2rem;
 }
 
 .pokemon__name {
     font-size: 0.9rem;
+    max-width: 100%;
 }
 
 .pokemon-form input,
@@ -291,7 +305,18 @@ ul.details__evolution-list li:first-child:before {
 }
 
 .pokemon-form button:hover {
-    background-color: #36428c;
+    background-color: black;
     /* border: 1px solid #36428c; */
     color: white;
+}
+
+/*Página 404*/
+body.pag-404 {
+    justify-content: center;
+}
+
+.pokemon-404 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
