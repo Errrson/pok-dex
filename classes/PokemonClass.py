@@ -79,34 +79,32 @@ class PokemonClass:
         return list_stats
 
     def get_evolution_chain(self):
-        list_evolutions = []
+        self.list_evolutions = []
         species_json = self.get_response(self.response['species']['url'])
         evolution_json = self.get_response(
             species_json['evolution_chain']['url'])
+        specie = self.get_response(evolution_json['chain']['species']['url'])
+        data_evolution = {
+            'name': evolution_json['chain']['species']['name'],
+            'id': specie['id']
+        }
+        self.list_evolutions.append(data_evolution)
 
-        evolution_step_json = self.get_response(
-            evolution_json['chain']['species']['url'])
-        evolutions = {'name': evolution_json['chain']['species']['name'],
-                      'id': evolution_step_json['id']}
-        list_evolutions.append(evolutions)
+        if evolution_json['chain']['evolves_to']:
+            self.get_next_evolution(evolution_json['chain']['evolves_to'])
 
-        evolution_first = evolution_json['chain']['evolves_to']
-        if evolution_first:
-            evolution_step_json = self.get_response(
-                evolution_first[0]['species']['url'])
-            evolutions = {'name': evolution_first[0]['species']['name'],
-                          'id': evolution_step_json['id']}
-            list_evolutions.append(evolutions)
+        return self.list_evolutions
 
-            evolution_second = evolution_first[0]['evolves_to']
-            if evolution_second:
-                evolution_step_json = self.get_response(
-                    evolution_second[0]['species']['url'])
-                evolutions = {'name': evolution_second[0]['species']['name'],
-                              'id': evolution_step_json['id']}
-            list_evolutions.append(evolutions)
-
-        return list_evolutions
+    def get_next_evolution(self, evolution_json):
+        for evolution in evolution_json:
+            specie = self.get_response(evolution['species']['url'])
+            data_evolution = {
+                'name': evolution['species']['name'],
+                'id': specie['id']
+            }
+            self.list_evolutions.append(data_evolution)
+            if evolution['evolves_to']:
+                self.get_next_evolution(evolution['evolves_to'])
 
     def get_description(self):
         species_json = self.get_response(self.response['species']['url'])
