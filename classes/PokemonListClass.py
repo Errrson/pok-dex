@@ -16,9 +16,13 @@ class PokemonListClass:
     def get_pokemonlist(self):
         pokemonlist = []
         for pokemon in self.response['results']:
-            temp_dict = {
-                'name': pokemon['name'],
-                'url': f"/pokemon/{pokemon['name']}"
-            }
-            pokemonlist.append(temp_dict)
+            response_info_pokemon = requests.get(
+                pokemon['url'], headers=self.h)
+            info_pokemon = response_info_pokemon.json()
+            if info_pokemon['is_default']:
+                temp_dict = {
+                    'name': pokemon['name'],
+                    'url': f"/pokemon/{pokemon['name']}"
+                }
+                pokemonlist.append(temp_dict)
         return pokemonlist
