@@ -320,3 +320,21 @@ body.pag-404 {
     align-items: center;
     flex-wrap: wrap;
 }
+
+@media (max-width: 1400px) {
+    .pokemon-block__item {
+        width: 10%;
+    }
+}
+
+@media (max-width: 900px) {
+    .pokemon-block__item {
+        width: 33%;
+    }
+}
+
+@media (max-width: 600px) {
+    .pokemon-block__item {
+        width: 50%;
+    }
+}
