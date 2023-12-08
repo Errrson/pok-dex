@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 from classes.PokemonClass import PokemonClass
 from classes.PokemonListClass import PokemonListClass
+import requests_cache
 
-
+requests_cache.install_cache("pokemon_api_cache")
 app = Flask(__name__)
 
 

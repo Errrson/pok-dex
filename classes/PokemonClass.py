@@ -62,13 +62,11 @@ class PokemonClass:
         return self.response['height']/10
 
     def get_types(self):
-        list_types = []
-        for type_poke in self.response['types']:
-            list_types.append(type_poke['type']['name'])
-        string_types = ""
-        for tipo in list_types:
-            string_types += tipo + " / "
-        return string_types[:-2]
+
+        list_types = [type_poke['type']['name']
+                      for type_poke in self.response['types']]
+        string_types = " / ".join(list_types)
+        return string_types.rstrip("/ ")
 
     def get_stats(self):
         list_stats = []
