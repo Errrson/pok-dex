@@ -1,19 +1,98 @@
-# Pokedex Web App
+# Proyecto Pokédex Pokémon
 
-Bienvenido a la Pokedex Web App, una aplicación web que te permite explorar y obtener información detallada sobre diferentes Pokémon. Esta aplicación ha sido desarrollada con Python 3.11.5 y Flask 3.0.0, aprovechando la tecnología de la PokeApi para obtener datos precisos y actualizados sobre los Pokémon.
+## Descripción
 
-## Características principales
+Este proyecto es una Pokédex en línea que muestra información detallada sobre los primeros 150 Pokémon. Utiliza Python 3.11.5 junto con Flask 3.0.0 para el backend y HTML, CSS y JavaScript para el frontend. La información de los Pokémon se obtiene de dos APIs:
 
-- **Consulta de la PokeApi:** La aplicación utiliza la [PokeApi](https://pokeapi.co/) para obtener información detallada sobre estadísticas, habilidades, tipos y más.
+- [PokeApi](https://pokeapi.co/): Para obtener información detallada de cada Pokémon, como sus estadísticas, tipos, descripción, número, género, etc.
+- [Pokemon Database](https://pokemondb.net/): Para obtener imágenes de los Pokémon, tanto en su forma normal como shiny.
 
-- **Imágenes de Pokémon:** Las imágenes de los Pokémon son obtenidas de [Pokemon Database](https://pokemondb.net/).
+## Características
 
-- **Interfaz amigable:** El frontend de la aplicación está construido con HTML, CSS y JavaScript.
+- **Página Principal:** Lista de los primeros 150 Pokémon.
+- **Buscador:** Permite buscar un Pokémon por su nombre y acceder a su ficha técnica.
+- **Ficha Técnica:** Muestra información detallada de un Pokémon específico y permite navegar al siguiente o anterior Pokémon usando botones tipo flecha.
+- **Navegación Directa:** Desde la lista principal, se puede hacer clic en cualquier Pokémon para ver su ficha técnica.
+- **Página de Pokémon No Encontrado:** Se muestra cuando se busca un Pokémon con un nombre incorrecto.
 
-## Requisitos del sistema
+## Tecnologías Utilizadas
 
-Python 3.11.5 y Flask 3.0.0.
+- **Backend:**
+  - Python 3.11.5
+  - Flask 3.0.0
+- **Frontend:**
+  - HTML
+  - CSS
+  - JavaScript
 
-## Créditos
-- **PokeApi:** https://pokeapi.co/
-- **Pokemon Database:** https://pokemondb.net/
+## Instalación y Uso
+
+1. **Clonar el repositorio:**
+
+    ```bash
+    git clone https://github.com/tu-usuario/pokedex-pokemon.git
+    cd pokedex-pokemon
+    ```
+
+2. **Crear y activar un entorno virtual:**
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # En Windows: venv\Scripts\activate
+    ```
+
+3. **Instalar las dependencias:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Ejecutar la aplicación:**
+
+    ```bash
+    flask run
+    ```
+
+5. **Abrir el navegador:**
+
+    Navegar a `http://127.0.0.1:5000` para ver la aplicación en acción.
+
+## Estructura del Proyecto
+
+pokedex-pokemon/
+├── static/
+│ ├── css/
+│ ├── js/
+│ └── images/
+├── templates/
+│ ├── index.html
+│ ├── pokemon.html
+│ └── not_found.html
+├── app.py
+├── requirements.txt
+└── README.md
+
+
+- **static/**: Contiene los archivos estáticos (CSS, JavaScript, imágenes).
+- **templates/**: Contiene las plantillas HTML.
+- **app.py**: Archivo principal de la aplicación Flask.
+- **requirements.txt**: Archivo de dependencias del proyecto.
+- **README.md**: Este archivo.
+
+## Contribución
+
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
+3. Realiza los cambios necesarios y commitea (`git commit -am 'Agrega nueva característica'`).
+4. Haz push a la rama (`git push origin feature/nueva-caracteristica`).
+5. Crea un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
+
+---
+
+¡Gracias por usar nuestra Pokédex Pokémon! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
