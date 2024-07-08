@@ -47,52 +47,6 @@ Este proyecto es una Pokédex en línea que muestra información detallada sobre
     pip install -r requirements.txt
     ```
 
-4. **Ejecutar la aplicación:**
-
-    ```bash
-    flask run
-    ```
-
-5. **Abrir el navegador:**
-
-    Navegar a `http://127.0.0.1:5000` para ver la aplicación en acción.
-
-## Estructura del Proyecto
-
-pokedex-pokemon/
-├── static/
-│ ├── css/
-│ ├── js/
-│ └── images/
-├── templates/
-│ ├── index.html
-│ ├── pokemon.html
-│ └── not_found.html
-├── app.py
-├── requirements.txt
-└── README.md
-
-
-- **static/**: Contiene los archivos estáticos (CSS, JavaScript, imágenes).
-- **templates/**: Contiene las plantillas HTML.
-- **app.py**: Archivo principal de la aplicación Flask.
-- **requirements.txt**: Archivo de dependencias del proyecto.
-- **README.md**: Este archivo.
-
-## Contribución
-
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
-3. Realiza los cambios necesarios y commitea (`git commit -am 'Agrega nueva característica'`).
-4. Haz push a la rama (`git push origin feature/nueva-caracteristica`).
-5. Crea un Pull Request.
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
-
 ---
 
 ¡Gracias por usar nuestra Pokédex Pokémon! Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.
