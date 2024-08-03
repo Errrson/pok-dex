@@ -260,11 +260,12 @@ ul.details__evolution-list li:first-child:before {
 .pokemon-block__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 1rem;
 }
 
 .pokemon-block__item {
-    width: 5%;
+    width: 6%;
 }
 
 .pokemon-block__item a {
@@ -272,8 +273,6 @@ ul.details__evolution-list li:first-child:before {
     flex-direction: column;
     align-items: center;
     margin: 1rem;
-    overflow: hidden;
-    /* Para evitar que el contenido se desborde al crecer */
     transition: transform 0.3s ease;
     /* Añade una transición suave al efecto */
 }
@@ -288,7 +287,7 @@ ul.details__evolution-list li:first-child:before {
 }
 
 .pokemon__name {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     max-width: 100%;
 }
 

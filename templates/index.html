@@ -25,7 +25,7 @@
                     <a href="{{pokemon.url}}">
                         <img src="https://img.pokemondb.net/sprites/home/normal/{{ pokemon.name }}.png"
                             class="pokemon__image">
-                        <span class="pokemon__name">{{ pokemon.name }}</span>
+                        <span class="pokemon__name">{{ pokemon.name.capitalize() }}</span>
                     </a>
                 </li>
                 {% endfor %}

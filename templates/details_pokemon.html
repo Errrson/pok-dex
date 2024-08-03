@@ -67,7 +67,7 @@
                         <ul class="stats__list">
                             {% for atributo in pokemon.stats %}
                             <li class="stats__item stat__{{ atributo.name }}">
-                                <span class="stat__name">{{ atributo.name }}</span>
+                                <span class="stat__name">{{ atributo.name.capitalize() }}</span>
                                 <span id="js-stat__value--{{ atributo.name }}" class="stat__value"
                                     data-value="{{ atributo.value }}"></span>
                             </li>

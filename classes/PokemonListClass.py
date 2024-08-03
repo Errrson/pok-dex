@@ -1,28 +1,23 @@
 import requests
-
-
 class PokemonListClass:
 
+    #https://pokeapi.co/api/v2/pokemon-species usar este endpoint
     def __init__(self):
-        self.url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
+        self.url = "https://pokeapi.co/api/v2/pokemon-species?limit=19999"
         self.h = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'}
-        self.response = self.get_response()
+        self.response = requests.get(self.url, headers=self.h)
 
-    def get_response(self):
-        response = requests.get(self.url, headers=self.h)
-        return response.json()
-
-    def get_pokemonlist(self):
+    def get_pokemonlist(self):        
         pokemonlist = []
-        for pokemon in self.response['results']:
-            response_info_pokemon = requests.get(
-                pokemon['url'], headers=self.h)
-            info_pokemon = response_info_pokemon.json()
-            if info_pokemon['is_default']:
-                temp_dict = {
-                    'name': pokemon['name'],
-                    'url': f"/pokemon/{pokemon['name']}"
-                }
-                pokemonlist.append(temp_dict)
+        data_poke = self.response.json()
+        for pokemon in data_poke['results']:            
+            temp_dict = {
+                'name': pokemon['name'],
+                'url': f"/pokemon/{pokemon['name']}"
+            }
+
+            pokemonlist.append(temp_dict)
+
         return pokemonlist
+    
